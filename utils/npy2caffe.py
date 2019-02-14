@@ -25,15 +25,15 @@ def main():
     net_file = os.path.join(absroot, 'prototxt', \
                             'squeezedet.prototxt')
     
-    # Set npy model
-    npy_file = os.path.join(absroot, 'model_checkpoints', \
-                            'squeezeDet.npy')
+    # Set npz model
+    npz_file = os.path.join(absroot, 'model_checkpoints', \
+                            'squeezeDet.npz')
 
     # Initial net model
     net = caffe.Net(net_file, caffe.TRAIN)
     
-    # Load npy model
-    npy_model = np.load(npy_file).item()
+    # Load npz model
+    npz_model = dict(np.load(npy_file))
     
     # Set caffemodel savepath
     savepath = os.path.join(absroot, 'model_checkpoints', \
