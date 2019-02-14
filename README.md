@@ -1,5 +1,15 @@
 # caffe-squeezeDet
 
+#### Model Conversion Note (Harsh Munshi)
+```
+$ pip install tensorpack
+```
+Place your tensorflow models to tf_models under tfutils. Then run,
+
+```
+$ python dump_to_npz.py --meta ./tf_models/<some_model>.ckpt-xxxx.meta ./tf_models/<some_model>.ckpt-xxxx out.npz
+```
+
 #### This is the caffe version of squeezeDet. And I converted tensorflow  model directly into caffemodel. 
 ----
 ### Note
