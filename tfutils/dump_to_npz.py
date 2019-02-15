@@ -44,4 +44,5 @@ if __name__ == '__main__':
         assert name in dic, "Variable {} not found in the model!".format(name)
 
     dic_to_dump = {k: v for k, v in six.iteritems(dic) if k in var_to_dump}
+    print(dic_to_dump)
     varmanip.save_chkpt_vars(dic_to_dump, args.output)

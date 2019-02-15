@@ -10,6 +10,32 @@ Place your tensorflow models to tf_models under tfutils. Then run,
 $ python dump_to_npz.py --meta ./tf_models/<some_model>.ckpt-xxxx.meta ./tf_models/<some_model>.ckpt-xxxx out.npz
 ```
 
+#### Support for npy files
+Place your tensorflow models to tf_models under tfutils. Then run,
+
+```
+$ python dump_to_npy.py --meta ./tf_models/<some_model>.ckpt-xxxx.meta ./tf_models/<some_model>.ckpt-xxxx 
+```
+
+#### **UPDATE
+
+You can also do it without tensorpack, use the following code:
+
+```
+from tensorflow.python.tools import inspect_checkpoint as chkp
+
+chkp.print_tensors_in_checkpoint_file("./model	/model.ckpt-12000", tensor_name='', all_tensors=True)
+```
+
+#### Conversion to caffemodel
+
+Once you have the .npy or .npz files, copy them and paste it to model_checkpoints folder. Then run
+
+```
+$ python npy2caffe.py
+```
+Now you have the caffemodel :)
+
 #### This is the caffe version of squeezeDet. And I converted tensorflow  model directly into caffemodel. 
 ----
 ### Note

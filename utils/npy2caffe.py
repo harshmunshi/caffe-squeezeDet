@@ -27,23 +27,26 @@ def main():
     
     # Set npz model
     npz_file = os.path.join(absroot, 'model_checkpoints', \
-                            'squeezeDet.npz')
+                            'prm_squeezeDet.npy')
 
     # Initial net model
     net = caffe.Net(net_file, caffe.TRAIN)
     
     # Load npz model
-    npz_model = dict(np.load(npy_file))
+    #npz_model = dict(np.load(npz_file))
+    npz_model = np.load(npz_file).item()
+    print(npz_model)
     
     # Set caffemodel savepath
     savepath = os.path.join(absroot, 'model_checkpoints', \
                             'squeezeDet.caffemodel')
 
     paramnames = net.params.keys()
+    print(paramnames)
 
     for paramname in paramnames:
-        npy_weights = npy_model[paramname]['weights']
-        npy_biases = npy_model[paramname]['biases']
+        npy_weights = npz_model[paramname]['weights']
+        npy_biases = npz_model[paramname]['biases']
      
         net.params[paramname][0].data[...] = npy_weights
         net.params[paramname][1].data[...] = npy_biases
