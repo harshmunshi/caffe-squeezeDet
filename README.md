@@ -36,6 +36,8 @@ $ python npy2caffe.py
 ```
 Now you have the caffemodel :)
 
+### Notes from the original author
+
 #### This is the caffe version of squeezeDet. And I converted tensorflow  model directly into caffemodel. 
 ----
 ### Note
