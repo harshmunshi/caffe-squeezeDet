@@ -27,7 +27,7 @@ def main():
     
     # Set npz model
     npz_file = os.path.join(absroot, 'model_checkpoints', \
-                            'prm_squeezeDet.npy')
+                            'intermediate_squeezeDet.npy')
 
     # Initial net model
     net = caffe.Net(net_file, caffe.TRAIN)
@@ -39,7 +39,7 @@ def main():
     
     # Set caffemodel savepath
     savepath = os.path.join(absroot, 'model_checkpoints', \
-                            'squeezeDet.caffemodel')
+                            'final_squeezeDet.caffemodel')
 
     paramnames = net.params.keys()
     print(paramnames)
